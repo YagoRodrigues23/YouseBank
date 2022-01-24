@@ -1,12 +1,14 @@
 public class Conta {
-	///atributos
-    double saldo;
+	
+	//assosciaçao/atributiur uma referencia a o atibuto titular
+    
+	private double saldo = 100;
     int agencia;
     int numero;
-    String titular;
+    Cliente titular;
     
     
-    ///metodo/ParametrosQueRecebeEoquedevolve
+    ///metodo/Parametros Que recebe e devolve
     public void deposita(double valor) {
     	this.saldo += valor;
     	
@@ -28,4 +30,15 @@ public class Conta {
     	}
     	return false;    	
     }
+
+  /// metodo que devolve o saldo, metedo que informa o saldo !!!
+  /// metodo esconder informaçao
+    
+    public double getSaldo() {
+    	return this.saldo;
+    	
+    }
 }   
+
+
+
