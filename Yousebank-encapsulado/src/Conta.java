@@ -6,19 +6,26 @@ public class Conta {
     private int agencia;
     private int numero;
     private Cliente titular;  
+    private static int total;
+    
     
     ///Contrutor/Parametros
     public Conta(int agencia, int numero) {
-    	this.agencia = agencia;
+    	Conta.total++;
+    	System.out.println("o total de contas é " + Conta.total);
+        this.agencia = agencia;
     	this.numero = numero;
-    	System.out.println("estou criando uma conta" + this.numero);
+    	System.out.println("estou criando uma conta " + this.numero);
     	
     }
+           
+    public Conta(double d) {
+		// TODO Auto-generated constructor stub
+	}
+
+	///metodo/Parametros Que recebe e devolve
     
     
-    
-    
-    ///metodo/Parametros Que recebe e devolve
     public void deposita(double valor) {
     	this.saldo += valor;
     	
@@ -37,7 +44,10 @@ public class Conta {
     	if(this.saldo >= valor) {
     		this.saldo -= valor;
     		destino.deposita(valor);
+    		System.out.println("Saldo destino " + destino.getSaldo());
+    		System.out.println("Saldo origem " + this.getSaldo());
     	}
+    	
     	return false;    	
     }
     
@@ -86,6 +96,13 @@ public class Conta {
     public Cliente getTitular() {
 		return titular;
 	}
+    
+    // esse metodo #static é da classe
+    
+    public static int getTotal() {
+    	return Conta.total;
+    }
+    
    
 }
      
